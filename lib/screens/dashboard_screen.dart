@@ -189,9 +189,12 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 Icon(icon, color: color),
                 const SizedBox(width: 8),
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                Expanded(
+                  child: Text(
+                    title,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),
@@ -395,8 +398,10 @@ class DashboardScreen extends StatelessWidget {
                       child: Text(
                         goal.name,
                         style: const TextStyle(fontWeight: FontWeight.bold),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
+                    const SizedBox(width: 8),
                     Text(
                       '${(goal.progress * 100).toStringAsFixed(0)}%',
                       style: const TextStyle(fontWeight: FontWeight.bold),
